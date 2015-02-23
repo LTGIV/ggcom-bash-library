@@ -31,7 +31,7 @@ SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
 SCRIPTNAME=`basename $0`
 
 # This Library
-LIBPATH=$( cd "$(dirname "$BASH_SOURCE")" ; pwd -P )
+#LIBPATH=$( cd "$(dirname "$BASH_SOURCE")" ; pwd -P )
 LIBNAME=$(basename $BASH_SOURCE)
 
 function updates_get()
