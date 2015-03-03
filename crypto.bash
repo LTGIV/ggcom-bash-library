@@ -11,6 +11,7 @@
 
 # List Support
 function cryptoSupport() {
+
 #	echo "[OpenSSL File]"
 #	/usr/bin/openssl sha1 FILE;
 #	
@@ -22,6 +23,8 @@ function cryptoSupport() {
 #	
 #	echo "[Hash.Bash String]";
 #	cat FILE | ./hash.bash sha1
+
+	false
 } # END FUNCTION: CRYPTO SUPPORT
 
 # Calculate hash
