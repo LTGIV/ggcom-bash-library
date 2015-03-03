@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 #
-# https://
+# GGCOM - Bash - Library - Variables for Bash v201503030304
+# Louis T. Getterman IV (@LTGIV)
+# www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/vars
 #
+# Example usage:
+# source "varsBash.bash"
+# echo "$SCRIPTPATH - $SCRIPTNAME - $LIBNAME"
 
 # https://www.google.com/search?q=bash+script+name+without+path&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a&channel=fflb
 # https://www.google.com/search?q=bash+name+of+script&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a&channel=fflb
