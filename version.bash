@@ -12,7 +12,7 @@ function getVersion() {
 	local path=${1-$0}
 	local type=${2-number}
 	
-	local versLine=`head -n5 "$1" | grep -n 'v[0-9]' | cut -f1 -d:`
+	local versLine=`head -n5 "$path" | grep -n 'v[0-9]' | cut -f1 -d:`
 	local versHead=`tail -n+"$versLine" "$path" | head -n3 | sed 's/# *//g'`
 	local versProg=`echo "$versHead" | head -n1`
 	local versNum=`echo "$versHead" | grep -Eo 'v[0-9]{1,}' | grep -Eo '[0-9]{1,}'`
