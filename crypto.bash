@@ -36,7 +36,7 @@ function cryptoGenPass() {
 	local LENGTH=${1-40}
 	local FILTER=${2-'[:print:]'}
 	local OPENSSL=true
-	hash opensslX 2>/dev/null || { OPENSSL=false; }
+	hash openssl 2>/dev/null || { OPENSSL=false; }
 	#-----/Variables
 
 	#----- Main
