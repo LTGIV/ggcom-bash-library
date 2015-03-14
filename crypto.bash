@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# GGCOM - Bash - Library - Cryptography v201503030304
+# GGCOM - Bash - Library - Cryptography v201503141524
 # Louis T. Getterman IV (@LTGIV)
 # www.GotGetLLC.com | www.opensour.cc/ggcom/lib/crypto
 #
@@ -41,9 +41,9 @@ function cryptoGenPass() {
 
 	#----- Main
 	if [ "$OPENSSL" == true ]; then
-		(openssl enc -aes-256-ctr -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero | env LC_CTYPE=C tr -dc $FILTER | head -c $LENGTH) 2>/dev/null
+		(openssl enc '-aes-256-cbc' -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero | env LC_CTYPE=C tr -dc "$FILTER" | head -c "$LENGTH") 2>/dev/null
 	else
-		cat /dev/urandom | env LC_CTYPE=C tr -dc $FILTER | head -c $LENGTH
+		cat /dev/urandom | env LC_CTYPE=C tr -dc "$FILTER" | head -c "$LENGTH"
 	fi
 	#-----/Main
 
