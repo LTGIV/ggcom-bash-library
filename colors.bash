@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# GGCOM - Bash - Library - Colors v201503141810
+# GGCOM - Bash - Library - Colors v201503141942
 # Louis T. Getterman IV (@LTGIV)
 # www.GotGetLLC.com | www.opensour.cc/ggcom/lib/colors
 #
 # Example usage:
-# source "colors.bash"
+# source "$HOME/ggcom/ggcom-bash-library/colors.bash"
 # echo -e "${ggcPurple}`whoami`${ggcNC}@${ggcCyan}`hostname -s`${ggcNC}"
 #
 # Thanks:
