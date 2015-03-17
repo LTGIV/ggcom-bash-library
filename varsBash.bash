@@ -30,10 +30,10 @@
 # https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 
 # Bash run script path
-SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
+#SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
 
 # Bash run script name
-SCRIPTNAME=`basename $0`
+#SCRIPTNAME=`basename $0`
 
 # This Library
 #LIBPATH=$( cd "$(dirname "$BASH_SOURCE")" ; pwd -P )
