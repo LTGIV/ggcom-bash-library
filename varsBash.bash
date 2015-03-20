@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# GGCOM - Bash - Library - Variables for Bash v201503030304
+# GGCOM - Bash - Library - Variables for Bash v201503200106
 # Louis T. Getterman IV (@LTGIV)
 # www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/vars
 #
@@ -28,6 +28,9 @@
 # http://www.cyberciti.biz/tips/linux-unix-pause-command.html
 # http://www.linuxjournal.com/content/return-values-bash-functions
 # https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+
+# Temporary Path
+OSTEMPPATH=$( cd "$(dirname "`mktemp -u 2>/dev/null || mktemp -u -t 'ggcom'`")" ; pwd -P )
 
 # Bash run script path
 #SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
