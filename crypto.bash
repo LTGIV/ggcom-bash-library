@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# GGCOM - Bash - Library - Cryptography v201503141524
+# GGCOM - Bash - Library - Cryptography v201503292347
 # Louis T. Getterman IV (@LTGIV)
 # www.GotGetLLC.com | www.opensour.cc/ggcom/lib/crypto
 #
@@ -98,7 +98,7 @@ function cryptoHashCalc() {
 			;;
 
 		file)
-			eval "$hashpath" <$request | eval "$hashpostargs"
+			eval "$hashpath" <"$request" | eval "$hashpostargs"
 			;;
 	esac
 	#-----/Calculate Hash
