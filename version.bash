@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# GGCOM - Bash - Library - Version v201503030304
+# GGCOM - Bash - Library - Version v201504010237
 # Louis T. Getterman IV (@LTGIV)
 # www.GotGetLLC.com | www.opensour.cc/ggcom/lib/version
 #
@@ -9,8 +9,8 @@
 # echo "`getVersion '/usr/bin/dfwu.py' [line|header|program|number]`"
 
 function getVersion() {
-	local path=${1-$0}
-	local type=${2-number}
+	local path="${1-$0}"
+	local type="${2-number}"
 	
 	local versLine=`head -n5 "$path" | grep -n 'v[0-9]' | cut -f1 -d:`
 	local versHead=`tail -n+"$versLine" "$path" | head -n3 | sed 's/# *//g'`
@@ -21,23 +21,23 @@ function getVersion() {
 	
 	case $type in
 		line)
-			veret=$versLine
+			veret="$versLine"
 			;;
 
 		header)
-			veret=$versHead
+			veret="$versHead"
 			;;
 
 		program)
-			veret=$versProg
+			veret="$versProg"
 			;;
 		
 		number)
-			veret=$versNum
+			veret="$versNum"
 			;;
 		
 		*)
-			veret=$versNum
+			veret="$versNum"
 			;;
 	esac
 	
