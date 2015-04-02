@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Prompts v201503311320
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/prompt
-#
-# Example usage:
-# source "prompt.bash"
-# pauseret
+: <<'!COMMENT'
 
-# http://www.cyberciti.biz/tips/linux-unix-pause-command.html
+GGCOM - Bash - Library - Prompts v201504020726
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/prompt
+
+Example usage:
+source "prompt.bash"
+pauseret
+
+Thanks:
+http://www.cyberciti.biz/tips/linux-unix-pause-command.html
+
+!COMMENT
 
 function pause(){
 	read -p "$*";
@@ -34,3 +38,24 @@ function qa_with_def() {
 	echo "$inpAnswer"
 
 } # END FUNCTION: qa_with_def
+
+function notifyalert() {
+
+# Notification
+
+	#----- Variables
+	local	notifyapp="$1"
+	local	notifyargs="$2"
+	local	title="$3"
+	local	message="$4"
+	#-----/Variables
+
+if [ ! -z "$notifyapp" ]; then
+	eval $notifyapp "$( \
+		str_replace "\%title\%" "$title" "$( \
+		str_replace "\%message\%" "$message" "$notifyargs"
+		)"
+	)"
+fi
+
+} # END FUNCTION: notifyalert

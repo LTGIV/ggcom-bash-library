@@ -1,17 +1,24 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Strings v201503311320
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/string
-#
-# Example usage:
-# source "string.bash"
-# echo `str_repeat - 80`
-#
-# Thanks:
-# http://www.linuxjournal.com/content/return-values-bash-functions
-# http://stackoverflow.com/questions/5349718/how-can-i-repeat-a-character-in-bash
-# http://forums.gentoo.org/viewtopic-t-660965-view-previous.html
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - Strings v201504020726
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/string
+
+Example usage:
+source "string.bash"
+echo `str_repeat - 80`
+
+Thanks:
+http://www.linuxjournal.com/content/return-values-bash-functions
+http://stackoverflow.com/questions/5349718/how-can-i-repeat-a-character-in-bash
+http://forums.gentoo.org/viewtopic-t-660965-view-previous.html
+http://stackoverflow.com/questions/13210880/replace-one-substring-for-another-string-in-shell-script
+
+To-do:
+* Add count into str_replace
+
+!COMMENT
 
 # echo `str_repeat - 80`
 function str_repeat()
@@ -23,6 +30,19 @@ function str_repeat()
 
     echo $stat
 } # END FUNCTION: str_repeat
+
+function str_replace()
+{
+	#----- Variables
+	local	search="$1"
+	local	replace="$2"
+	local	subject="$3"
+	local	count='' # use / to replace one or // to replace all
+	#----- Variables
+
+	echo "${subject//$search/$replace}"
+
+} # END FUNCTION: str_replace
 
 function parseUserHost() {
 
