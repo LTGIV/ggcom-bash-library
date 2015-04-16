@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Colors v201503141942
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/lib/colors
-#
-# Example usage:
-# source "$HOME/ggcom/ggcom-bash-library/colors.bash"
-# echo -e "${ggcPurple}`whoami`${ggcNC}@${ggcCyan}`hostname -s`${ggcNC}"
-#
-# Thanks:
-# http://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - Colors v201504162001
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/lib/colors
+
+Example usage:
+source "$HOME/ggcom/ggcom-bash-library/colors.bash"
+echo -e "${ggcPurple}`whoami`${ggcNC}@${ggcCyan}`hostname -s`${ggcNC}"
+
+Thanks:
+http://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+
+!COMMENT
 
 ggcBlack='\033[0;30m'
 ggcBlue='\033[0;34m'

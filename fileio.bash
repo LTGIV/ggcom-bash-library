@@ -1,17 +1,27 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - File I/O v201503300542
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/fileio
-#
-# Example usage:
-# source "fileio.bash"
-# echo `real_dir "~/alias/"`
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - File I/O v201504162001
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/fileio
+
+Example usage:
+source "fileio.bash"
+echo `real_dir "~/alias/"`
+
+!COMMENT
 
 function real_dir() {
 
 	if [ -d "$1" ]; then
 		echo $( mod_trail_slash add "$( cd "$1" ; pwd -P )" )
+
+	elif [ -f "$1" ]; then
+		echo "$( cd "$(dirname "$1")" ; pwd -P )/`basename "$1"`"
+
+	else
+		echo ''
+
 	fi
 
 } # END FUNCTION: real_dir

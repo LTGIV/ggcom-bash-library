@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Internet Protocol v201503031016
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/ip
-#
-# Example usage:
-# source "ip.bash"
-# if valid_ipv4 '192.168.1.1' == true; then echo 'Valid IP'; else echo 'Invalid IP'; fi
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - Internet Protocol v201504162001
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/ip
+
+Example usage:
+source "ip.bash"
+if valid_ipv4 '192.168.1.1' == true; then echo 'Valid IP'; else echo 'Invalid IP'; fi
+
+!COMMENT
 
 # http://www.linuxjournal.com/content/validating-ip-address-bash-script
 # 

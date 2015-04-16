@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Version v201504010237
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/lib/version
-#
-# Example usage:
-# source "version.bash"
-# echo "`getVersion '/usr/bin/dfwu.py' [line|header|program|number]`"
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - Version v201504162001
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/lib/version
+
+Example usage:
+source "version.bash"
+echo "`getVersion '/usr/bin/dfwu.py' [line|header|program|number]`"
+
+!COMMENT
 
 function getVersion() {
 	local path="${1-$0}"
@@ -24,11 +27,11 @@ function getVersion() {
 			veret="$versLine"
 			;;
 
-		header)
+		(header|head)
 			veret="$versHead"
 			;;
 
-		program)
+		(program|name|title)
 			veret="$versProg"
 			;;
 		

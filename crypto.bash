@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Cryptography v201503292347
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/lib/crypto
-#
-# Example usage:
-# source "crypto.bash"
-# echo "`cryptoHashCalc md5 string 'Hello World'`"
-# echo "`cryptoHashCalc sha1 file '/etc/hosts'`"
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - Cryptography v201504162001
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/lib/crypto
+
+Example usage:
+source "crypto.bash"
+echo "`cryptoHashCalc md5 string 'Hello World'`"
+echo "`cryptoHashCalc sha1 file '/etc/hosts'`"
+
+!COMMENT
 
 # List Support
 function cryptoSupport() {

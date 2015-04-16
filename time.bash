@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
-#
-# GGCOM - Bash - Library - Time v201503210639
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com | www.opensour.cc/ggcom/lib/time
-#
-# Example usage:
-# source "$HOME/ggcom/ggcom-bash-library/time.bash"
-# start_ts=10:33:56
-# stop_ts=10:36:10
-# START=$(ts_get_sec $start_ts) && STOP=$(ts_get_sec $stop_ts)
-# DIFF=$((STOP-START))
-# echo "$((DIFF/60))m $((DIFF%60))s"
-#
-# Thanks:
-# http://stackoverflow.com/questions/8903239/how-to-calculate-time-difference-in-bash-script
-# http://stackoverflow.com/questions/12199631/convert-seconds-to-hours-minutes-seconds-in-bash
-# http://unix.stackexchange.com/questions/34017/convert-linux-sysuptime-to-well-format-date
-# http://www.linuxquestions.org/questions/programming-9/convert-total-no-of-seconds-in-the-format-hour-minutes-and-seconds-276427/
+: <<'!COMMENT'
+
+GGCOM - Bash - Library - Time v201504162001
+Louis T. Getterman IV (@LTGIV)
+www.GotGetLLC.com | www.opensour.cc/ggcom/lib/time
+
+Example usage:
+source "$HOME/ggcom/ggcom-bash-library/time.bash"
+start_ts=10:33:56
+stop_ts=10:36:10
+START=$(ts_get_sec $start_ts) && STOP=$(ts_get_sec $stop_ts)
+DIFF=$((STOP-START))
+echo "$((DIFF/60))m $((DIFF%60))s"
+
+Thanks:
+http://stackoverflow.com/questions/8903239/how-to-calculate-time-difference-in-bash-script
+http://stackoverflow.com/questions/12199631/convert-seconds-to-hours-minutes-seconds-in-bash
+http://unix.stackexchange.com/questions/34017/convert-linux-sysuptime-to-well-format-date
+http://www.linuxquestions.org/questions/programming-9/convert-total-no-of-seconds-in-the-format-hour-minutes-and-seconds-276427/
+
+!COMMENT
 
 ts_get_sec() {
 # http://stackoverflow.com/questions/8903239/how-to-calculate-time-difference-in-bash-script
