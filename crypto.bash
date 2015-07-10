@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 : <<'!COMMENT'
 
-GGCOM - Bash - Library - Cryptography v201504162001
+GGCOM - Bash - Library - Cryptography v201507100702
 Louis T. Getterman IV (@LTGIV)
 www.GotGetLLC.com | www.opensour.cc/ggcom/lib/crypto
 
@@ -52,6 +52,54 @@ function cryptoGenPass() {
 
 } # END FUNCTION: GENERATE PASSWORD
 
+function cryptoHashCandidate() {
+	local hash="${1-md5}"
+	hash="$( echo "$hash" | tr '[:upper:]' '[:lower:]' )"
+
+	if hash "${hash}sum" 2>/dev/null; then
+		hashpath="`type -p ${hash}sum`"
+		
+	elif hash "${hash}" 2>/dev/null; then
+		hashpath="`type -p $hash`"
+
+	elif hash gpg 2>/dev/null; then
+		hashpath="`type -p gpg` --print-md ${hash}"
+
+	elif hash openssl 2>/dev/null; then
+		hashpath="`type -p openssl` dgst -${hash}"
+
+	else
+		hashpath=''
+
+	fi
+
+	echo -n "$hashpath"
+} # END FUNCTION: HASH CANDIDATE
+
+function cryptoHashCandidatePost() {
+	local hash=${1-md5}
+	hash="$( echo "$hash" | tr '[:upper:]' '[:lower:]' )"
+
+	if hash "${hash}sum" 2>/dev/null; then
+		hashpostargs="cut -d' ' -f1"
+		
+	elif hash "${hash}" 2>/dev/null; then
+		hashpostargs="cut -d' ' -f1"
+
+	elif hash gpg 2>/dev/null; then
+		hashpostargs="sed 's/ //g' | tr '[:upper:]' '[:lower:]' | tr -d '(\n|\r)'"
+
+	elif hash openssl 2>/dev/null; then
+		hashpostargs='cat'
+
+	else
+		hashpostargs=''
+
+	fi
+
+	echo -n "$hashpostargs"
+} # END FUNCTION: HASH CANDIDATE
+
 # Calculate hash
 # Example usage:
 # echo "`cryptoHashCalc [md5|sha1|..] [string|file] '/etc/hosts'`"
@@ -64,27 +112,8 @@ function cryptoHashCalc() {
 	local hashpostargs=''
 
 	#----- Find program, and arguments
-	if hash "${hash}sum" 2>/dev/null; then
-		hashpath="`type -p ${hash}sum`"
-		hashpostargs="cut -d' ' -f1"
-		
-	elif hash "${hash}" 2>/dev/null; then
-		hashpath="`type -p $hash`"
-		hashpostargs="cut -d' ' -f1"
-
-	elif hash gpg 2>/dev/null; then
-		hashpath="`type -p gpg` --print-md ${hash}"
-		hashpostargs="sed 's/ //g' | tr '[:upper:]' '[:lower:]' | tr -d '(\n|\r)'"
-
-	elif hash openssl 2>/dev/null; then
-		hashpath="`type -p openssl` dgst -${hash}"
-		hashpostargs='cat'
-
-	else
-		hashpath=''
-		hashargs=''
-
-	fi
+	hashpath=`cryptoHashCandidate "$hash"`
+	hashpostargs=`cryptoHashCandidatePost "$hash"`
 	#-----/Find program, and arguments
 
 	#----- Doesn't exist
@@ -95,7 +124,7 @@ function cryptoHashCalc() {
 	#-----/Doesn't exist
 
 	#----- Calculate Hash
-	case $method in
+	case "$method" in
 		string)
 			echo -n "$request" | eval "$hashpath" | eval "$hashpostargs"
 			;;
@@ -103,6 +132,9 @@ function cryptoHashCalc() {
 		file)
 			eval "$hashpath" <"$request" | eval "$hashpostargs"
 			;;
+
+		test)
+			echo -n "Testing." | eval "$hashpath" 2>&1 1>/dev/null
 	esac
 	#-----/Calculate Hash
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 : <<'!COMMENT'
 
-GGCOM - Bash - Library - File I/O v201504162001
+GGCOM - Bash - Library - File I/O v201507100702
 Louis T. Getterman IV (@LTGIV)
 www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/fileio
 
@@ -10,6 +10,19 @@ source "fileio.bash"
 echo `real_dir "~/alias/"`
 
 !COMMENT
+
+# Required Support Programs
+function support_prog() {
+	# Given an array of programs, and if they're not there, will return failure, and pass a list of what failed.
+	True
+} # END FUNCTION: support_prog
+
+# Current Directory
+function curr_dir() {
+
+	True
+	
+} # END FUNCTION: curr_dir
 
 function real_dir() {
 
@@ -52,6 +65,20 @@ function userHomePath() {
 	fi
 
 } # END FUNCTION: userHomePath
+
+# Home Directory
+# Optional argument is a specific user
+# Over-glorified alias for userHomePath() - might chunk it in the future
+function home_dir() {
+
+	#----- Variables
+	local userSelect=''
+	[[ ! -z "$1" ]] && userSelect="$1" || userSelect=`whoami`
+	#-----/Variables
+
+	echo "`userHomePath "${userSelect}@localhost"`"
+
+} # END FUNCTION: home_dir
 
 function userDestPath() {
 

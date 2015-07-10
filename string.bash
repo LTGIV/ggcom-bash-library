@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 : <<'!COMMENT'
 
-GGCOM - Bash - Library - Strings v201504020726
+GGCOM - Bash - Library - Strings v201504251127
 Louis T. Getterman IV (@LTGIV)
 www.GotGetLLC.com | www.opensour.cc/ggcom/bash/lib/string
 
@@ -20,9 +20,33 @@ To-do:
 
 !COMMENT
 
+function strtoupper() {
+	local input="$1"
+	
+	echo "$input" | tr '[:lower:]' '[:upper:]'
+} # END FUNCTION: strtoupper
+
+function strtolower() {
+	local input="$1"
+	
+	echo "$input" | tr '[:upper:]' '[:lower:]'
+} # END FUNCTION: strtolower
+
+function substr() {
+	local input="$1"
+	local start=${2-0}
+	local stop=${3-''}
+
+	if [ ! -z $stop ]; then
+		echo "${input:$start:$stop}"
+	else
+		echo "${input:$start}"
+	fi
+
+} # END FUNCTION: substr
+
 # echo `str_repeat - 80`
-function str_repeat()
-{
+function str_repeat() {
     local  char=$1
     local  repeat=$2
 
@@ -31,8 +55,7 @@ function str_repeat()
     echo $stat
 } # END FUNCTION: str_repeat
 
-function str_replace()
-{
+function str_replace() {
 	#----- Variables
 	local	search="$1"
 	local	replace="$2"
